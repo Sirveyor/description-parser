@@ -1,0 +1,17 @@
+
+2. **Modify `parser3.py`** to call this module instead of the external application. You can do this by importing `CSVEditor` and calling it with the path to your CSV file:
+
+```python
+from csv_editor import CSVEditor
+
+def display_csv_file(csv_file):
+    editor = CSVEditor(csv_file)
+    editor.run()
+
+# Replace the external application call with:
+display_csv_file("path_to_your_final_csv_file.csv")
+```
+
+3. **Test the Integration**: Run your application and ensure that the CSV editor opens, allows for edits, and saves changes correctly.
+
+This approach will keep your Python application running until the user closes the `tkinter` window, at which point the application will terminate.

@@ -1,0 +1,55 @@
+[project]
+name = "description-parser"
+version = "0.1.0"
+description = "A tool for parsing and standardizing point descriptions in CSV files"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.4.1",
+    "pytest-mock>=3.10.0",
+    "pytest-cov>=6.2.1",
+    "pytest-xvfb>=3.0.0",  # For GUI testing on headless systems
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main", "description_parser", "parser3"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--cov=description-parser",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "--verbose"
+]
+
+[tool.coverage.run]
+source = ["description-parser"]
+omit = [
+    "tests/*",
+    "*/test_*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+]
