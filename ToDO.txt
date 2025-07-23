@@ -1,0 +1,5 @@
+When checking for field codes account for integer suffix.  
+
+When no field code is found ask for substitute and/or add to dictionary.
+
+When checking for property corner if size does not have " then add to end.
