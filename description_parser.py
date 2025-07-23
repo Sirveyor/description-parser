@@ -141,9 +141,9 @@ class DescriptionParser:
         file_path = filedialog.askopenfilename(
             title="Select File",
             filetypes=[
-                ("All Files", "*.*"),
-                ("CSV Files", "*.csv"),
                 ("Text Files", "*.txt"),
+                ("CSV Files", "*.csv"),
+                ("All Files", "*.*"),
             ]
         )
         if file_path:
