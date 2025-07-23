@@ -74,7 +74,8 @@ def item_is_size(item: str) -> bool:
     """
     if item.startswith('\\'):
         item = item[1:]  # Remove leading backslash if present
-
+    if item.endswith('"'):
+        item = item[:-1]  # Remove trailing double quote if present
     size_pattern = r'(?:\d+\s+\d+/\d+|\d+/\d+|\d+)(?:"|\')?'
     return bool(re.match(size_pattern, item))
 
